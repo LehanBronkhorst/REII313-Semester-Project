@@ -26,16 +26,6 @@
     <string>Enter the problem in matrix form for the Simplex Method</string>
    </property>
   </widget>
-  <widget class="QTextBrowser" name="textBrowser">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>50</y>
-     <width>256</width>
-     <height>192</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QPushButton" name="SimplexSolveButton">
    <property name="geometry">
     <rect>
@@ -47,6 +37,16 @@
    </property>
    <property name="text">
     <string>Solve</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>33</x>
+     <y>60</y>
+     <width>331</width>
+     <height>191</height>
+    </rect>
    </property>
   </widget>
  </widget>
