@@ -7,7 +7,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     w.show();
 
-    //Danie is n dom naai
+    //Danie is regtig n dom naai
 
     return a.exec();
 }
