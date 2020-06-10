@@ -1,0 +1,84 @@
+#include<stdio.h>
+
+
+class Knapsack
+{
+
+public:
+
+int max(int a, int b)
+{
+   if(a>b)
+   {
+      return a;
+   }
+   else
+   {
+      return b;
+   }
+}
+
+int knapsack_Calculation(int W, int weight[], int value[], int n)
+{
+   int i;
+   int w;
+   int knap[n+1][W+1];
+
+   for (i=0; i<=n; i++)
+    {
+      for (w=0; w<=W; w++)
+      {
+         if (i==0 || w==0)
+         {
+              knap[i][w] = 0;
+         }
+         else if (weight[i-1] <= w)
+         {
+              knap[i][w] = max(value[i-1] + knap[i-1][w-weight[i-1]], knap[i-1][w]);
+         }
+         else
+         {
+              knap[i][w] = knap[i-1][w];
+         }
+      }
+   }
+   return knap[n][W];
+}
+};
+
+int main()
+{
+   int e;
+   
+   cout << "How many items: ";
+   cin >> e;
+   cout << "\n";
+
+    int value[e];
+    
+    for(int v=0; v<e; v++)
+    {
+          cout << "Enter the value of item "<< v+1 <<": ";
+          cin >> value[v];
+    }
+    cout << "\n";
+
+   int weight[e];
+
+    for(int we=0; we<e; we++)
+    {
+          cout << "Enter the weight of item " << we+1 <<": ";
+          cin >> weight[we];
+    }
+    
+   int W;
+   int n = sizeof(value)/sizeof(value[0]);
+
+   cout << "\nEnter the capacity of the knapsack: ";
+   cin >> W;
+
+   Knapsack solution;
+   cout << "\nThe optimal solution is: " << solution.knapsack_Calculation(W, weight, value, n);
+   
+   return 0;
+}
